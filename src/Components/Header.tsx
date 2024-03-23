@@ -1,8 +1,8 @@
-import { motion, useAnimation, useScroll } from "framer-motion";
+import { motion, useAnimation, useScroll, useMotionValueEvent } from "framer-motion";
 import { useMatch } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const Nav = styled(motion.nav)`
@@ -13,7 +13,7 @@ const Nav = styled(motion.nav)`
   width: 100%;
   top: 0;
   background-color: black;
-  font-size: 14px;
+  font-size: 18px;
   padding: 20px 60px;
   color: white;
 `;
@@ -41,14 +41,15 @@ const Items = styled.ul`
 
 const Item = styled.li`
   margin-right: 20px;
-  color: ${(props) => props.theme.white.darker};
+  color: ${(props) => props.theme.white.lighter};
+  text-shadow: 0px 0px 2px black;
   transition: color 0.3s ease-in-out;
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
   &:hover {
-    color: ${(props) => props.theme.white.lighter};
+    color: ${(props) => props.theme.white.darker};
   }
 `;
 
@@ -126,17 +127,17 @@ function Header() {
       }
       setSearchOpen((prev) => !prev);
     };
-    useEffect(() => {
-      scrollY.onChange(() => {
+
+    useMotionValueEvent(scrollY, "change", () => {
         if (scrollY.get() > 80) {
-          navAnimation.start("scroll");
-        } else {
-          navAnimation.start("top");
+            navAnimation.start("scroll");
+          } else {
+            navAnimation.start("top");
         }
-      });
-    }, [scrollY, navAnimation]);
+    })
+
     return (
-    <Nav variants={navVariants} animate={navAnimation} initial={"top"}>
+    <Nav variants={navVariants} animate={navAnimation} initial="top">
         <Col>
         <Link to="/">
         <Logo
