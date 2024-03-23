@@ -1,1 +1,1 @@
-framer motion practice
+Netflix clone coding
