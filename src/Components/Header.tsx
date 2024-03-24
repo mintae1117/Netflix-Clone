@@ -66,10 +66,10 @@ const Search = styled.span`
 const Input = styled(motion.input)`
   transform-origin: right center;
   position: absolute;
-  left: -150px;
+  left: -195px;
   right: 0px;
   padding: 5px 10px;
-  padding-left: 5px;
+  padding-left: 35px;
   z-index: -1;
   color: white;
   font-size: 16px;
@@ -165,7 +165,7 @@ function Header() {
         <Search>
             <motion.svg
                 onClick={toggleSearch}
-                animate={{ x: searchOpen ? -185 : 0 }}
+                animate={{ x: searchOpen ? -190 : 0 }}
                 transition={{ type: "linear" }}
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -181,7 +181,7 @@ function Header() {
                 transition={{ type: "linear" }}
                 animate={inputAnimation}
                 initial={{ scaleX: 0 }}
-                placeholder="Search for movie or tv show..." />
+                placeholder="Search movie / tv shows" />
         </Search>
         </Col>
     </Nav>

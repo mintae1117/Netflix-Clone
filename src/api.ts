@@ -8,11 +8,11 @@ interface IMovie {
     title: string;
     overview: string;
 }
-  
-  export interface IGetMoviesResult {
+
+export interface IGetMoviesResult {
     dates: {
-      maximum: string;
-      minimum: string;
+        maximum: string;
+        minimum: string;
     };
     page: number;
     results: IMovie[];
