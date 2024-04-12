@@ -9,6 +9,7 @@ import { PathMatch, useMatch, useNavigate } from "react-router-dom"
 const Wrapper = styled.div`
   background: black;
   padding-bottom: 200px;
+  overflow-x: hidden;
 `;
 
 const Loader = styled.div`
@@ -197,14 +198,14 @@ function Home() {
         <Loader>Loading...</Loader>
       ) : (
         <>
-          <Banner
+        <Banner
             onClick={incraseIndex}
             bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}
           >
             <Title>{data?.results[0].title}</Title>
             <Overview>{data?.results[0].overview}</Overview>
-          </Banner>
-          <Slider>
+        </Banner>
+        <Slider>
             <AnimatePresence initial={false} onExitComplete={toggleLeaving}>
               <Row
                 variants={rowVariants}
@@ -235,7 +236,7 @@ function Home() {
                   ))}
               </Row>
             </AnimatePresence>
-          </Slider>
+        </Slider>
           <AnimatePresence>
             {bigMovieMatch ? (
                 <>
