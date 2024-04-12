@@ -76,6 +76,7 @@ const Input = styled(motion.input)`
   font-size: 16px;
   background-color: transparent;
   border: 1px solid ${(props) => props.theme.white.lighter};
+  border-radius: 5px;
 `;
 
 const Circle = styled(motion.span)`
@@ -193,7 +194,7 @@ function Header() {
                 transition={{ type: "linear" }}
                 animate={inputAnimation}
                 initial={{ scaleX: 0 }}
-                placeholder="Search movie / tv shows" />
+                placeholder="Search keywords" />
         </Search>
         </Col>
     </Nav>
